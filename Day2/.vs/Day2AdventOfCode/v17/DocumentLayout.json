@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\GitHub\\AdventOfCode\\Day2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EE21DD47-370E-4B47-8BE2-1454B9501103}|Day2AdventOfCode\\Day2AdventOfCode.csproj|c:\\users\\administrator\\documents\\github\\adventofcode\\day2\\day2adventofcode\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE21DD47-370E-4B47-8BE2-1454B9501103}|Day2AdventOfCode\\Day2AdventOfCode.csproj|solutionrelative:day2adventofcode\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\GitHub\\AdventOfCode\\Day2\\Day2AdventOfCode\\Program.cs",
+              "RelativeDocumentMoniker": "Day2AdventOfCode\\Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\GitHub\\AdventOfCode\\Day2\\Day2AdventOfCode\\Program.cs",
+              "RelativeToolTip": "Day2AdventOfCode\\Program.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAxwBoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T19:11:27.617Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
