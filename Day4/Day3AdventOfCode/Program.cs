@@ -17,62 +17,98 @@ namespace Day3AdventOfCode
 
             //string input = "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))";
 
+            string mulPattern = @"mul\((\d{1,3}),(\d{1,3})\)";
+            // Regex to match conditional statements
+            string conditionPattern = @"do\(\)|don't\(\)";
 
+            int sum = 0; // Final result
+            bool isEnabled = true; // Tracks whether mul instructions are enabled
 
-            string pattern = @"mul\((\d+),(\d+)\)";
-            //string patternFirst = @"don't\(\).*";
-            //string Sec = @"do\(\).*";
-            string testpat = @"don't\(\).+?do\(\)";
+            // Use regex to parse the input sequentially
+            Regex regex = new Regex($"{mulPattern}|{conditionPattern}");
+            MatchCollection matches = regex.Matches(input);
 
-            int Total = 0;
-            int sumDont = 0;
-
-
-            MatchCollection matches = Regex.Matches(input, pattern);
             foreach (Match match in matches)
             {
-
-                int x = int.Parse(match.Groups[1].Value);
-                int y = int.Parse(match.Groups[2].Value);
-                if (x > 999 || y > 999)
+                if (match.Value.StartsWith("do()"))
                 {
-                    Console.WriteLine(x);
-                    Console.WriteLine(y);
+                    isEnabled = true; // Enable future mul instructions
                 }
-                else
+                else if (match.Value.StartsWith("don't()"))
                 {
-                    Total += x * y;
+                    isEnabled = false; // Disable future mul instructions
                 }
-            }
-            Console.WriteLine(Total);
-
-
-
-            MatchCollection matchess = Regex.Matches(input, testpat);
-            foreach (Match match in matchess)
-            {
-                Console.WriteLine(match.Value);
-                Console.WriteLine("================================");
-                MatchCollection matchesDont = Regex.Matches(match.Value, pattern);
-                foreach (Match matchDontMatch in matchesDont)
+                else if (match.Groups[1].Success && match.Groups[2].Success) // Valid mul(X, Y)
                 {
-                    int x = int.Parse(matchDontMatch.Groups[1].Value);
-                    int y = int.Parse(matchDontMatch.Groups[2].Value);
-                    if (x > 999 || y > 999)
+                    if (isEnabled)
                     {
-                        Console.WriteLine(x);
-                        Console.WriteLine(y);
-                    }
-                    else
-                    {
-                        sumDont += x * y;
-                        Console.WriteLine(sumDont);
+                        int x = int.Parse(match.Groups[1].Value);
+                        int y = int.Parse(match.Groups[2].Value);
+                        sum += x * y; // Add product if enabled
                     }
                 }
             }
 
-            Console.WriteLine("Final Total: " + (Total - sumDont));
+            // Output the final sum
+            Console.WriteLine($"Final Sum: {sum}");
         }
+    
+
+
+    //    string pattern = @"mul\((\d+),(\d+)\)";
+    //    //string patternFirst = @"don't\(\).*";
+    //    //string Sec = @"do\(\).*";
+    //    string testpat = @"don't\(\).+?do\(\)";
+
+    //    int Total = 0;
+    //    int sumDont = 0;
+
+
+    //    MatchCollection matches = Regex.Matches(test, pattern);
+    //    foreach (Match match in matches)
+    //    {
+
+    //        int x = int.Parse(match.Groups[1].Value);
+    //        int y = int.Parse(match.Groups[2].Value);
+    //        if (x > 999 || y > 999)
+    //        {
+    //            Console.WriteLine(x);
+    //            Console.WriteLine(y);
+    //        }
+    //        else
+    //        {
+    //            Total += x * y;
+    //        }
+    //    }
+    //    Console.WriteLine(Total);
+
+
+
+    //    MatchCollection matchess = Regex.Matches(test, testpat);
+    //    foreach (Match match in matchess)
+    //    {
+    //        Console.WriteLine(match.Value);
+    //        Console.WriteLine("================================");
+    //        MatchCollection matchesDont = Regex.Matches(match.Value, pattern);
+    //        foreach (Match matchDontMatch in matchesDont)
+    //        {
+    //            int x = int.Parse(matchDontMatch.Groups[1].Value);
+    //            int y = int.Parse(matchDontMatch.Groups[2].Value);
+    //            if (x > 999 || y > 999)
+    //            {
+    //                Console.WriteLine(x);
+    //                Console.WriteLine(y);
+    //            }
+    //            else
+    //            {
+    //                sumDont += x * y;
+    //                Console.WriteLine(sumDont);
+    //            }
+    //        }
+    //    }
+
+    //    Console.WriteLine("Final Total: " + (Total - sumDont));
+    //}
 
 
 
