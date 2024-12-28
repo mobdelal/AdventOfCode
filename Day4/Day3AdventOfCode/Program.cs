@@ -18,13 +18,11 @@ namespace Day3AdventOfCode
             //string input = "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))";
 
             string mulPattern = @"mul\((\d{1,3}),(\d{1,3})\)";
-            // Regex to match conditional statements
             string conditionPattern = @"do\(\)|don't\(\)";
 
-            int sum = 0; // Final result
-            bool isEnabled = true; // Tracks whether mul instructions are enabled
+            int sum = 0;
+            bool isEnabled = true; 
 
-            // Use regex to parse the input sequentially
             Regex regex = new Regex($"{mulPattern}|{conditionPattern}");
             MatchCollection matches = regex.Matches(input);
 
@@ -32,24 +30,23 @@ namespace Day3AdventOfCode
             {
                 if (match.Value.StartsWith("do()"))
                 {
-                    isEnabled = true; // Enable future mul instructions
+                    isEnabled = true; 
                 }
                 else if (match.Value.StartsWith("don't()"))
                 {
-                    isEnabled = false; // Disable future mul instructions
+                    isEnabled = false; 
                 }
-                else if (match.Groups[1].Success && match.Groups[2].Success) // Valid mul(X, Y)
+                else if (match.Groups[1].Success && match.Groups[2].Success) 
                 {
                     if (isEnabled)
                     {
                         int x = int.Parse(match.Groups[1].Value);
                         int y = int.Parse(match.Groups[2].Value);
-                        sum += x * y; // Add product if enabled
+                        sum += x * y;
                     }
                 }
             }
 
-            // Output the final sum
             Console.WriteLine($"Final Sum: {sum}");
         }
     
